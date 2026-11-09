@@ -2,8 +2,11 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow import keras
+from pathlib import Path
 
-model = keras.models.load_model('model_cuaca.keras')
+MODEL_PATH = Path(__file__).resolve().parent / "model_cuaca.keras"
+
+model = keras.models.load_model(MODEL_PATH)
 kelas = ['Cloudy', 'Rain', 'Shine', 'Sunrise']
 st.title('Klasifikasi Kondisi Cuaca')
 st.write('Prediksi kondisi cuaca menggunakan CNN')
